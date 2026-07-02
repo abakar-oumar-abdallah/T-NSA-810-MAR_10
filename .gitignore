@@ -1,0 +1,21 @@
+# Secrets — ne JAMAIS pousser
+group_vars/all.yml
+*.key
+*.pem
+*.ovpn
+vault-secrets/
+.vault_pass
+
+# Environnements virtuels Python/Ansible
+ansible-venv/
+*.retry
+
+# Fichiers systèmes
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+__pycache__/
+
+# Logs
+*.log
