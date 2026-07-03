@@ -1,0 +1,24 @@
+# Profil OpenVPN client-to-site — T-NSA-810
+# Remplacer les valeurs entre <> par les vraies valeurs
+client
+dev tun
+proto udp
+remote 5.196.51.234 1194
+resolv-retry infinite
+nobind
+persist-key
+persist-tun
+remote-cert-tls server
+cipher AES-256-GCM
+auth SHA256
+verb 3
+
+<ca>
+# COLLER ICI LE CERTIFICAT CA
+</ca>
+<cert>
+# COLLER ICI LE CERTIFICAT CLIENT
+</cert>
+<key>
+# COLLER ICI LA CLÉ PRIVÉE CLIENT
+</key>

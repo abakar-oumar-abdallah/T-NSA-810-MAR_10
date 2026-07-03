@@ -1,0 +1,53 @@
+---
+- name: Désactiver le stub listener de systemd-resolved (libère le port 53)
+  ansible.builtin.lineinfile:
+    path: /etc/systemd/resolved.conf
+    regexp: '^#?DNSStubListener='
+    line: 'DNSStubListener=no'
+    insertafter: '\[Resolve\]'
+  notify: Redémarrer systemd-resolved
+
+- name: S'assurer que la section [Resolve] existe
+  ansible.builtin.lineinfile:
+    path: /etc/systemd/resolved.conf
+    line: '[Resolve]'
+    insertbefore: '^DNSStubListener='
+    state: present
+
+- name: Installer Unbound (DNS Resolver) et Chrony (NTP)
+  ansible.builtin.apt:
+    name:
+      - unbound
+      - chrony
+    state: present
+    update_cache: true
+
+- name: Déployer la configuration Unbound
+  ansible.builtin.template:
+    src: unbound.conf.j2
+    dest: /etc/unbound/unbound.conf.d/custom.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Redémarrer Unbound
+
+- name: Déployer la configuration Chrony
+  ansible.builtin.template:
+    src: chrony.conf.j2
+    dest: /etc/chrony/chrony.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Redémarrer Chrony
+
+- name: S'assurer que Unbound est démarré et activé
+  ansible.builtin.systemd:
+    name: unbound
+    state: started
+    enabled: true
+
+- name: S'assurer que Chrony est démarré et activé
+  ansible.builtin.systemd:
+    name: chrony
+    state: started
+    enabled: true

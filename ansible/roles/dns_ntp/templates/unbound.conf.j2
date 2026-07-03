@@ -1,0 +1,17 @@
+server:
+    interface: 0.0.0.0
+    access-control: 192.168.10.0/24 allow
+    access-control: 192.168.20.0/24 allow
+    access-control: 10.8.0.0/24 allow
+    port: 53
+    do-ip4: yes
+    do-udp: yes
+    do-tcp: yes
+
+forward-zone:
+    name: "site1.local"
+    forward-addr: 192.168.10.1
+
+forward-zone:
+    name: "."
+    forward-addr: 192.168.20.1

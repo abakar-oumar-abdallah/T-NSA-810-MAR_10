@@ -1,0 +1,15 @@
+---
+- name: Redémarrer systemd-resolved
+  ansible.builtin.systemd:
+    name: systemd-resolved
+    state: restarted
+
+- name: Redémarrer Unbound
+  ansible.builtin.systemd:
+    name: unbound
+    state: restarted
+
+- name: Redémarrer Chrony
+  ansible.builtin.systemd:
+    name: chrony
+    state: restarted

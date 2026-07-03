@@ -1,0 +1,25 @@
+# HashiCorp Vault — Configuration deployée sur VM-S1-03 (192.168.10.103)
+
+# Voir /etc/vault/vault-config.hcl sur la VM
+storage "file" {
+  path = "/var/lib/vault/data"
+}
+
+listener "tcp" {
+  address     = "0.0.0.0:8200"
+  tls_disable = 1
+}
+
+api_addr = "http://192.168.10.103:8200"
+ui = true
+
+# Secrets stockés (KV v2, mount: secret/)
+# secret/projet/pfsense-s1
+# secret/projet/pfsense-s2
+# secret/projet/netbox
+# secret/projet/grafana
+# secret/projet/ipsec-s1-s2
+# secret/projet/bastion-s2
+# secret/projet/dns-ntp-s2
+# secret/projet/proxmox-s1
+# secret/projet/proxmox-s2
