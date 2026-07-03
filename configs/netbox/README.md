@@ -1,4 +1,4 @@
-# NetBox — Configuration IPAM
+# NetBox - Configuration IPAM
 
 ## Accès
 URL : http://192.168.10.103 (accessible LAN/VPN uniquement)
@@ -16,7 +16,7 @@ URL : http://192.168.10.103 (accessible LAN/VPN uniquement)
 |---------|------|-------------|
 | 192.168.10.0/24 | Site 1 | LAN Site 1 |
 | 192.168.20.0/24 | Site 2 | LAN Site 2 |
-| 10.8.0.0/24 | — | Tunnel OpenVPN client-to-site |
+| 10.8.0.0/24 | - | Tunnel OpenVPN client-to-site |
 
 ### Appareils & IPs
 | Device | IP | Interface |
