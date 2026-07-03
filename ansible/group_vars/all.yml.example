@@ -1,0 +1,4 @@
+# Copier ce fichier en all.yml et remplir les valeurs réelles
+# NE JAMAIS pousser all.yml sur Git (voir .gitignore)
+vault_addr: "http://192.168.10.103:8200"
+vault_token: "REMPLACER_PAR_VOTRE_TOKEN_VAULT"

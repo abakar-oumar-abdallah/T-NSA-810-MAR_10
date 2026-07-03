@@ -1,0 +1,6 @@
+---
+- name: Déploiement Node Exporter sur toutes les VMs
+  hosts: all
+  become: true
+  roles:
+    - node_exporter

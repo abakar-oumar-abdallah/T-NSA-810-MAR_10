@@ -1,0 +1,6 @@
+---
+- name: Déploiement DNS + NTP sur VM-S2-03
+  hosts: dns-ntp-s2
+  become: true
+  roles:
+    - dns_ntp

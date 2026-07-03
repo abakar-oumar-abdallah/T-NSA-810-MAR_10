@@ -1,0 +1,22 @@
+---
+- name: Démonstration intégration Ansible + Vault
+  hosts: ubuntu_s1
+  become: true
+  vars_files:
+    - ../group_vars/all.yml
+
+  tasks:
+    - name: Récupérer le secret NetBox depuis Vault
+      community.hashi_vault.vault_kv2_get:
+        url: "{{ vault_addr }}"
+        token: "{{ vault_token }}"
+        engine_mount_point: secret
+        path: projet/netbox
+      register: netbox_secret
+      delegate_to: localhost
+      run_once: true
+
+    - name: Afficher l'URL NetBox récupérée depuis Vault
+      ansible.builtin.debug:
+        msg: "NetBox URL récupérée depuis Vault : {{ netbox_secret.data.data.url }}"
+      run_once: true
