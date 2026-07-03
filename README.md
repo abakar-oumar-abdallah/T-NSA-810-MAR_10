@@ -1,4 +1,4 @@
-# T-NSA-810 — Infrastructure Hybride Proxmox
+# T-NSA-810 - Infrastructure Hybride Proxmox
 
 **Module** : T-NSA-810 · **École** : EPITECH · **Formateur** : Sébastien DATTICHES (We Are Cyber)
 
@@ -8,8 +8,8 @@ Infrastructure hybride 2 sites, 3 VMs par site, interconnexion IPsec IKEv2.
 
 | Site | Réseau | Services |
 |------|--------|----------|
-| Site 1 — On-Prem | 192.168.10.0/24 | pfSense · Grafana + Prometheus + Loki · Vault + NetBox + Nginx |
-| Site 2 — Distant | 192.168.20.0/24 | pfSense · Bastion Host · DNS (Unbound) + NTP (Chrony) |
+| Site 1 - On-Prem | 192.168.10.0/24 | pfSense · Grafana + Prometheus + Loki · Vault + NetBox + Nginx |
+| Site 2 - Distant | 192.168.20.0/24 | pfSense · Bastion Host · DNS (Unbound) + NTP (Chrony) |
 
 ## Stack Technologique
 
@@ -72,10 +72,10 @@ ansible-playbook -i ansible/inventory.ini ansible/playbooks/playbook-vault-demo.
 ## Documentation
 
 Voir le dossier `docs/` :
-- `HLD_T-NSA-810_v2.html` — vue fonctionnelle globale
-- `BLD_T-NSA-810_v3.html` — configuration technique détaillée
-- `Liste_Choix_Technologiques_v1.html` — justifications des choix
-- `Script_Demonstration_Keynote.html` — script de démo live
+- `HLD_T-NSA-810_v2.html` - vue fonctionnelle globale
+- `BLD_T-NSA-810_v3.html` - configuration technique détaillée
+- `Liste_Choix_Technologiques_v1.html` - justifications des choix
+- `Script_Demonstration_Keynote.html` - script de démo live
 
 ## Blocage technique documenté
 
